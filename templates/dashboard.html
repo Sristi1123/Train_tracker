@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Analytics Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container dashboard-container">
+        <button id="backBtn" class="btn-back">← Back to Search</button>
+        
+        <h1 class="dash-title">Train <span id="d-train-name">12301</span> Overview</h1>
+        
+        <!-- Section 1: Quick Summary -->
+        <div class="summary-grid">
+            <div class="glass-tile">
+                <span class="icon">⏱</span>
+                <h3 id="d-avg-delay">-- mins</h3>
+                <p>Avg Delay</p>
+            </div>
+            <div class="glass-tile">
+                <span class="icon">🎯</span>
+                <h3 id="d-ontime">--%</h3>
+                <p>On-Time Rate</p>
+            </div>
+            <div class="glass-tile">
+                <span class="icon">❄️</span>
+                <h3 id="d-peak-season">--</h3>
+                <p>Peak Delay Season</p>
+            </div>
+            <div class="glass-tile">
+                <span class="icon">📈</span>
+                <h3 id="d-busiest">--</h3>
+                <p>Busiest Month</p>
+            </div>
+        </div>
+
+        <div class="charts-row">
+            <!-- Section 2: Demand Trend -->
+            <div class="glass-card chart-container">
+                <h2>Passenger Demand by Month</h2>
+                <canvas id="demandChart"></canvas>
+                <p class="caption">Shows the seasonal peaks in ticket bookings.</p>
+            </div>
+            
+            <!-- Section 4: Cancellations -->
+            <div class="glass-card chart-container">
+                <h2>Cancellation Frequency by Month</h2>
+                <canvas id="cancellationChart"></canvas>
+                <p class="caption">Historical counts of train cancellations over the last 2 years.</p>
+            </div>
+        </div>
+
+        <!-- Section 3: Delay Heatmap by Season -->
+        <div class="glass-card season-heatmap">
+            <h2>Delay Heatmap by Season</h2>
+            <div class="season-row" id="seasonCards">
+                <!-- Injected via JS -->
+            </div>
+            <p class="caption">Highlights which time of the year experiences the worst operating conditions.</p>
+        </div>
+
+        <!-- Section 5: Speed Analysis -->
+        <div class="glass-card speed-analysis">
+            <h2>How fast does this train usually run?</h2>
+            <div class="speed-grid">
+                <div class="speed-tile">
+                    <p class="label">Route Distance</p>
+                    <h3 id="d-dist">-- km</h3>
+                </div>
+                <div class="speed-tile">
+                    <p class="label">Scheduled Time</p>
+                    <h3 id="d-dur">-- hrs</h3>
+                </div>
+                <div class="speed-tile">
+                    <p class="label">Average Speed</p>
+                    <h3 id="d-speed">-- km/h</h3>
+                </div>
+            </div>
+            <p class="caption">This is a <strong id="d-class">--</strong> class train.</p>
+        </div>
+
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

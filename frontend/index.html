@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Tracker AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glow-sphere"></div>
+    <div class="container">
+        <h1 class="title">Train Tracker <span class="ai-badge">AI Prediction</span></h1>
+        
+        <div class="search-box">
+            <input type="text" id="trainInput" placeholder="Enter Train No (e.g. 22924)" value="22924">
+            <button id="searchBtn">Search</button>
+        </div>
+
+        <!-- Loader -->
+        <div id="loader" class="loader hidden"></div>
+
+        <!-- Result Card -->
+        <div id="resultCard" class="card hidden">
+            <div class="card-header">
+                <div>
+                    <h2 id="trainName">Express 22924</h2>
+                </div>
+                <div id="statusBadge" class="status-badge landed">ON TIME</div>
+            </div>
+
+            <div class="route-info">
+                <div class="station">
+                    <h1 id="startCode" class="station-code">NDLS</h1>
+                    <p id="startName" class="station-name">New Delhi</p>
+                    <p class="label">DEPARTS</p>
+                    <p class="time">--:--</p>
+                </div>
+                
+                <div class="arrow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+
+                <div class="station">
+                    <h1 id="endCode" class="station-code">CNB</h1>
+                    <p id="endName" class="station-name">Kanpur Central</p>
+                    <p class="label">ARRIVES</p>
+                    <p id="arrivalTime" class="time">20:45 PM</p>
+                </div>
+            </div>
+
+            <div class="ml-prediction">
+                <div class="ml-icon">✨</div>
+                <div class="ml-text">
+                    <h4 id="mlTag">Prediction Engine</h4>
+                    <p id="mlMessage">Loading historical data analysis...</p>
+                </div>
+                <div id="mlConfidence" class="confidence">95%</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# Environment Variables
+.env
+
+# Python Caches
+__pycache__/
+*.pyc
+*.pyo
+
+# Model Binaries
+# (Optional: uncomment if you don't want to push the heavy model files to Github, they'll be regenerated on first run!)
+# models/

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Tracker AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Search Card -->
+        <div class="glass-card search-card">
+            <h1>Is Your Train On Time?</h1>
+            <p class="subtitle">Enter train number to get live status + AI delay prediction</p>
+            
+            <div class="input-group">
+                <input type="text" id="trainInput" placeholder="e.g. 12301">
+                <button id="searchBtn" class="btn-primary">Check My Train</button>
+            </div>
+            
+            <div id="loader" class="loader-container hidden">
+                <div class="spinner"></div>
+                <p>Fetching live status...</p>
+            </div>
+            
+            <div id="errorMsg" class="error-msg hidden"></div>
+        </div>
+
+        <!-- Result Card -->
+        <div id="resultCard" class="glass-card result-card hidden">
+            <div class="card-header">
+                <h2 id="r-train-name">TRAIN NAME 12301</h2>
+                <div id="r-status-badge" class="badge">ON TIME</div>
+            </div>
+
+            <div class="route-display">
+                <div class="station">
+                    <p class="label">FROM</p>
+                    <h3 id="r-source">NDLS</h3>
+                    <p class="time" id="r-departure">--:--</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="station">
+                    <p class="label">TO</p>
+                    <h3 id="r-dest">BCT</h3>
+                    <p class="time" id="r-arrival">--:--</p>
+                </div>
+            </div>
+            
+            <p class="current-loc">📍 Current Location: <span id="r-location">New Delhi</span></p>
+
+            <div class="divider"></div>
+
+            <div class="ai-box">
+                <div class="ai-header">
+                    <h4>AI Delay Forecast for Today</h4>
+                    <span id="r-confidence" class="confidence">87% confidence</span>
+                </div>
+                <h3 id="r-prediction" class="prediction-label">Low Risk ✓</h3>
+                <p id="r-reason" class="reason-text">Normal operating conditions.</p>
+                <p class="factors">Factors analyzed: Season, Time of Day, Route Distance, Historical Patterns</p>
+            </div>
+            
+            <button id="viewDashboardBtn" class="btn-secondary">View Analytics Dashboard</button>
+        </div>
+        
+    </div>
+    
+    <script src="/static/app.js"></script>
+</body>
+</html>
